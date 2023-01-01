@@ -1,54 +1,54 @@
-import 'react-circular-progressbar/dist/styles.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import "react-circular-progressbar/dist/styles.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
 
-import React, {useEffect, useState} from 'react';
-import {Container, Nav, Navbar} from 'react-bootstrap';
-import {buildStyles, CircularProgressbar} from 'react-circular-progressbar';
+import React, { useEffect, useState } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 
 function BlockHistoryList() {
   const [block, setBlock] = useState({
-    "block_time" : null,
-    "coin_amount" : null,
-    "consensus_timer" : null,
-    "creator" : null,
-    "default_increase_of_fee" : null,
-    "default_optimum_transaction_number" : null,
-    "default_transaction_fee" : null,
-    "dowload_true_block" : null,
-    "empty_block_number" : null,
-    "fee_address" : null,
-    "first_time" : null,
-    "gap_block_number" : null,
-    "genesis_time" : null,
-    "hard_block_number" : null,
-    "hash" : null,
-    "max_data_size" : null,
-    "max_tx_number" : null,
-    "minumum_transfer_amount" : null,
-    "part_amount" : null,
-    "part_amount_cache" : null,
-    "previous_hash" : null,
-    "round_1" : "",
-    "round_1_time" : null,
-    "round_2" : "",
-    "round_2_starting_time" : null,
-    "round_2_time" : null,
-    "sequance_number" : null,
-    "shares" : [],
-    "start_time" : null,
-    "sync" : null,
-    "transaction_delay_time" : null,
-    "transaction_fee" : null,
-    "validated" : "",
-    "validated_time" : null,
-    "validating_list" : []
+    block_time: null,
+    coin_amount: null,
+    consensus_timer: null,
+    creator: null,
+    default_increase_of_fee: null,
+    default_optimum_transaction_number: null,
+    default_transaction_fee: null,
+    dowload_true_block: null,
+    empty_block_number: null,
+    fee_address: null,
+    first_time: null,
+    gap_block_number: null,
+    genesis_time: null,
+    hard_block_number: null,
+    hash: null,
+    max_data_size: null,
+    max_tx_number: null,
+    minumum_transfer_amount: null,
+    part_amount: null,
+    part_amount_cache: null,
+    previous_hash: null,
+    round_1: "",
+    round_1_time: null,
+    round_2: "",
+    round_2_starting_time: null,
+    round_2_time: null,
+    sequance_number: null,
+    shares: [],
+    start_time: null,
+    sync: null,
+    transaction_delay_time: null,
+    transaction_fee: null,
+    validated: "",
+    validated_time: null,
+    validating_list: [],
   });
   const [current_block_number, setcurrent_block_number] = useState();
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('http://localhost:8000/export/block/json');
+      const response = await fetch("http://localhost:8000/export/block/json");
 
       const data = await response.json();
       // const data = {
@@ -110,73 +110,79 @@ function BlockHistoryList() {
 
       setBlock(data);
     }
-    const interval = setInterval(() => { fetchData(); }, 3000);
+    const interval = setInterval(() => {
+      fetchData();
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <ul>
-        <h5 class="card-subtitle mb-2">Block #{current_block_number}</h5>
-          <ul>
-          <li key={block}>Hash: {block.hash}</li>
-          <li key={block}>Previous Block Hash: {block.previous_hash}</li>
+      <h5 class="card-subtitle mb-2">Block #{current_block_number}</h5>
+      <ul>
+        <li key={block}>Hash: {block.hash}</li>
+        <li key={block}>Previous Block Hash: {block.previous_hash}</li>
 
-          <li key={block}>Time: {block.block_time}</li>
-          <li key={block}>Validated: {block.validated.toString()}</li>
+        <li key={block}>Time: {block.block_time}</li>
+        <li key={block}>Validated: {block.validated.toString()}</li>
 
-          <li key={block}>Start Time: {block.start_time}</li>
+        <li key={block}>Start Time: {block.start_time}</li>
 
+        <li key={block}>Round 1: {block.round_1.toString()}</li>
 
-          <li key={block}>Round 1: {block.round_1.toString()}</li>
+        <li key={block}>Round 2: {block.round_2.toString()}</li>
+        <li key={block}>Transaction Fee: {block.transaction_fee}</li>
 
-          <li key={block}>Round 2: {block.round_2.toString()}</li>
-          <li key={block}>Transaction Fee: {block.transaction_fee}</li>
+        <li key={block}>
+          Minimum Transfer Amount: {block.minumum_transfer_amount}
+        </li>
 
-          <li key={block}>Minimum Transfer Amount: {block.minumum_transfer_amount}</li>
+        <li key={block}>Sequance Number: {block.sequance_number}</li>
+        <li key={block}>Empty Block Number: {block.empty_block_number}</li>
 
-          <li key={block}>Sequance Number: {block.sequance_number}</li>
-          <li key={block}>Empty Block Number: {block.empty_block_number}</li>
-
-          <li key={block}>Validating List:</li>
-          <ul>
-            {block.validating_list.map((item) => (
-              <li key={item}>To: {item.toUser}
+        <li key={block}>Validating List:</li>
+        <ul>
+          {block.validating_list.map((item) => (
+            <li key={item}>
+              To: {item.toUser}
               <ul>
-                  <li key={item}>From: {item.fromUser}</li>
-                  <li key={item}>Amount: {item.amount}</li>
-                  <li key={item}>Transaction Fee: {item.transaction_fee}</li>
-                  <li key={item}>Transaction Time: {item.transaction_time}</li>
-                  <li key={item}>Sequance Number: {item.sequance_number}</li>
-                  <li key={item}>Signature: {item.signature}</li>
-                  <li key={item}>Data: {item.data}</li>
+                <li key={item}>From: {item.fromUser}</li>
+                <li key={item}>Amount: {item.amount}</li>
+                <li key={item}>Transaction Fee: {item.transaction_fee}</li>
+                <li key={item}>Transaction Time: {item.transaction_time}</li>
+                <li key={item}>Sequance Number: {item.sequance_number}</li>
+                <li key={item}>Signature: {item.signature}</li>
+                <li key={item}>Data: {item.data}</li>
               </ul>
-              </li>
-            ))
-}
-
-</ul>  
-
-
-          </ul><
-    /ul>
+            </li>
+          ))}
+        </ul>
+      </ul>
+    </ul>
   );
 }
 
 function DNS_navbar() {
-  const title = 'Decentra Network Scan';
+  const title = "Decentra Network Scan";
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-      <a class="navbar-brand" href="#">
-    <img src="https:/ /
+        <a class="navbar-brand" href="#">
+          <img
+            src="https:/ /
             docs.decentranetwork.net / assets / images /
-            logo.png " width=" 30 " height=" 30 " class="d -
+            logo.png "
+            width=" 30 "
+            height=" 30 "
+            class="d -
         inline - block align -
-        top " alt=" "/>
+        top "
+            alt=" "
+          />
 
-        {title}<
-            /a>
+          {title}
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -193,14 +199,20 @@ function DNS_navbar() {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
                 Home
-              </a><
-    /li>
+              </a>
+            </li>
             <li className="nav-item">
-              <a className="nav-link" href="https:/ /
-        decentranetwork.net / ">
-Website</a>
-            </li><li className = "nav-item">< a
-className = "nav-link"
+              <a
+                className="nav-link"
+                href="https:/ /
+        decentranetwork.net / "
+              >
+                Website
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
                 href="https://github.com/Decentra-Network/Decentra-Network"
               >
                 GitHub
@@ -211,21 +223,21 @@ className = "nav-link"
       </div>
     </nav>
   );
-                }
+}
 
-                function mapRange(value, low1, high1, low2, high2) {
-  return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-                }
+function mapRange(value, low1, high1, low2, high2) {
+  return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
+}
 
-                function getGradient(value) {
+function getGradient(value) {
   value = 100 - value;
   const percent = value / 100;
   const r = Math.round(255 * percent);
   const g = Math.round(255 * (1 - percent));
   return `rgb(${r}, ${g}, 0)`;
-                }
+}
 
-                function Decentra_Network_Scan() {
+function Decentra_Network_Scan() {
   const [connected_nodes, setconnected_nodes] = useState([]);
   const [last_transaction_of_us, setlast_transaction_of_us] = useState([]);
   const [progress, setProgress] = useState(0);
@@ -235,7 +247,7 @@ className = "nav-link"
   useEffect(() => {
     async function fetchData() {
       try {
-        response = await fetch('http://localhost:8000/status');
+        response = await fetch("http://localhost:8000/status");
       } catch (e) {
         setHealth("Offline");
         setProgress(0);
@@ -318,7 +330,7 @@ className = "nav-link"
       const status = data.status;
 
       setconnected_nodes(data.connected_nodes);
-      const the_list = JSON.parse(data.transactions_of_us)
+      const the_list = JSON.parse(data.transactions_of_us);
       setlast_transaction_of_us(the_list[the_list.length - 1]);
 
       if (status == "Working") {
@@ -329,92 +341,75 @@ className = "nav-link"
         setProgress(0);
       }
     }
-    const interval = setInterval(() => { fetchData(); }, 55000);
+    const interval = setInterval(() => {
+      fetchData();
+    }, 55000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    
     <Container>
       <DNS_navbar />
       <br />
       <br />
 
-      
-
-    <div className="container">
-
-      <div className="row justify-content-between gx-5 text-break">
-
-        <div className="col col-lg-4">
-        <div class="card mb-3">
-          <h2 class="card-title text-center">Connected Nodes</h2>
-            <br />
-            <ul>
+      <div className="container">
+        <div className="row justify-content-between gx-5 text-break">
+          <div className="col col-lg-4">
+            <div class="card mb-3">
+              <h2 class="card-title text-center">Connected Nodes</h2>
+              <br />
+              <ul>
                 <ul>
                   {connected_nodes.map((node) => (
                     <li key={node}>{node}</li>
                   ))}
                 </ul>
+              </ul>
+            </div>
+            <div class="card mb-3">
+              <h2 class="card-title text-center">Last transaction of us</h2>
+              <br />
+              <ul>
+                <ul>
+                  <li key={last_transaction_of_us}>{last_transaction_of_us}</li>
+                </ul>
+              </ul>
+            </div>
+          </div>
 
+          <div className="col col-lg-4">
+            <div class="card text-center">
+              <h2 class="card-title">Healty</h2>
+              <br />
+              <CircularProgressbar
+                value={progress}
+                text={health}
+                strokeWidth={10}
+                styles={buildStyles({
+                  textColor: getGradient(progress),
+                  textSize: "16px",
+                  pathColor: getGradient(progress),
+                  trailColor: "#d6d6d6",
+                })}
+              />
+            </div>
+          </div>
 
-
-            </ul>   
-          </div>  
-          <div class="card mb-3">
-          <h2 class="card-title text-center">Last transaction of us</h2>
-            <br />
-            <ul>
-
-                    <ul>
-                        <li key={last_transaction_of_us}>{last_transaction_of_us}</li>
-                    </ul>
-
-
-            </ul>        
-        </div>          
-
-        </div>
-
-
-
-        <div className="col col-lg-4">
-        <div class="card text-center">
-          <h2 class="card-title">Healty</h2>
-            <br />
-            <CircularProgressbar
-              value={progress}
-              text={health}
-              strokeWidth={10}
-              styles={
-      buildStyles({
-        textColor : getGradient(progress),
-        textSize : '16px',
-        pathColor : getGradient(progress),
-        trailColor : '#d6d6d6',
-      })}
-            />
+          <div className="col col-lg-4">
+            <div class="card">
+              <h2 class="card-title text-center">Block</h2>
+              <br />
+              <div>
+                <BlockHistoryList />
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="col col-lg-4">
-        <div class="card">
-          <h2 class="card-title text-center">Block</h2>
-          <br />
-          <div>
-          <BlockHistoryList />
-          </div>
-        </div>
-        </div>
-        
       </div>
-    </div>
     </Container>
   );
 }
-
-
-
 
 export default Decentra_Network_Scan;
