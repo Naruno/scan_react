@@ -52,6 +52,8 @@ function BlockHistoryList() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('http://localhost:8000/export/block/json');
+
+
       const data = await response.json();
       //const data = {
       //  "block_time": 22, 
@@ -227,10 +229,19 @@ function Decentra_Network_Scan() {
   const [last_transaction_of_us, setlast_transaction_of_us] = useState([]); 
   const [progress, setProgress] = useState(0);
   const [health, setHealth] = useState("Loading");
+  const [response, setresponse] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('http://localhost:8000/status');
+      try {
+        response = await fetch('http://localhost:8000/status');
+      } catch (e) {
+        setHealth("Offline");
+        setProgress(0);
+        return;
+      }
+
+      
       const data = await response.json();
       //const data = {
       //  "connected_nodes": [
