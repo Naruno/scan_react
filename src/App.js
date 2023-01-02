@@ -226,23 +226,28 @@ function getGradient(value) {
 
 function Decentra_Network_Scan() {
   const [connected_nodes, setconnected_nodes] = useState([]);
-  const [last_transaction_of_us, setlast_transaction_of_us] = useState([]); 
+  const [last_transaction_of_us, setlast_transaction_of_us] = useState([]);
   const [progress, setProgress] = useState(0);
   const [health, setHealth] = useState("Loading");
-  const [response, setresponse] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
+      let data = null
       try {
-        response = await fetch('http://localhost:8000/status');
+        const response = await fetch('http://localhost:8000/status');
+        data = await response.json();
       } catch (e) {
+        console.log(e)
         setHealth("Offline");
         setProgress(0);
-        return;
+
+        const interval = setInterval(() => {
+          fetchData();
+        }, 55000);
+
+        return () => clearInterval(interval);
       }
 
-      
-      const data = await response.json();
       //const data = {
       //  "connected_nodes": [
       //    "0.0.0.0:8011", 
