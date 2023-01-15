@@ -119,7 +119,7 @@ function BlockHistoryList() {
 
   return (
     <ul>
-        <h5 class="card-subtitle mb-2">Block #{current_block_number}</h5>
+        <h5 class="card-subtitle mb-2 text-white bg-dark">Block #{current_block_number}</h5>
           <ul>
           <li key={block}>Hash: {block.hash}</li>
           <li key={block}>Previous Block Hash: {block.previous_hash}</li>
@@ -167,10 +167,10 @@ function BlockHistoryList() {
 function DNS_navbar() {
   const title = 'Decentra Network Scan';
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg text-white bg-dark">
       <div className="container-fluid">
-      <a class="navbar-brand" href="#">
-    <img src="https://docs.decentranetwork.net/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
+      <a class="navbar-brand text-white bg-dark" href="#">
+    <img src="https://docs.decentranetwork.net/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top text-<white" alt="Decentra Network"/>
 
     {title}
   </a>
@@ -188,18 +188,18 @@ function DNS_navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active text-white bg-dark" aria-current="page" href="#">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://decentranetwork.net/">
+              <a className="nav-link text-white bg-dark" href="https://decentranetwork.net/">
                 Website
               </a>
             </li>
             <li className="nav-item">
               <a
-                className="nav-link"
+                className="nav-link text-white bg-dark"
                 href="https://github.com/Decentra-Network/Decentra-Network"
               >
                 GitHub
@@ -294,13 +294,13 @@ function Decentra_Network_Scan() {
 
       
 
-    <div className="container">
+    <div className="container ">
 
       <div className="row justify-content-between gx-5 text-break">
 
-        <div className="col col-lg-4">
-        <div class="card mb-3">
-          <h2 class="card-title text-center">Connected Nodes</h2>
+        <div className="col col-lg-4 text-white bg-dark">
+        <div class="card mb-3 text-white bg-dark">
+          <h2 class="card-title text-center text-white bg-dark">Connected Nodes</h2>
             <br />
             <ul>
                 <ul>
@@ -313,8 +313,8 @@ function Decentra_Network_Scan() {
 
             </ul>   
           </div>  
-          <div class="card mb-3">
-          <h2 class="card-title text-center">Last transaction of us</h2>
+          <div class="card mb-3 text-white bg-dark">
+          <h2 class="card-title text-center text-white bg-dark">Last transaction of us</h2>
             <br />
             <ul>
 
@@ -330,9 +330,9 @@ function Decentra_Network_Scan() {
 
 
 
-        <div className="col col-lg-4">
-        <div class="card text-center">
-          <h2 class="card-title">Healty</h2>
+        <div className="col col-lg-4 text-white bg-dark">
+        <div class="card text-center text-white bg-dark">
+          <h2 class="card-title text-white bg-dark">Healty</h2>
             <br />
             <CircularProgressbar
               value={progress}
@@ -342,15 +342,15 @@ function Decentra_Network_Scan() {
                 textColor: getGradient(progress),
                 textSize: '16px',
                 pathColor: getGradient(progress),
-                trailColor: '#d6d6d6',
+                trailColor: '#fff',
               })}
             />
           </div>
         </div>
 
-        <div className="col col-lg-4">
-        <div class="card">
-          <h2 class="card-title text-center">Block</h2>
+        <div className="col col-lg-4 text-white bg-dark">
+        <div class="card text-white bg-dark">
+          <h2 class="card-title text-center text-white bg-dark">Block</h2>
           <br />
           <div>
           <BlockHistoryList />
