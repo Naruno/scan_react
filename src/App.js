@@ -36,7 +36,7 @@ function BlockHistoryList() {
       "round_2": "", 
       "round_2_starting_time": null, 
       "round_2_time": null, 
-      "sequance_number": null, 
+      "sequence_number": null, 
       "shares": [], 
       "start_time": null, 
       "sync": null, 
@@ -82,7 +82,7 @@ function BlockHistoryList() {
       //  "round_2": false, 
       //  "round_2_starting_time": null, 
       //  "round_2_time": 10, 
-      //  "sequance_number": 0, 
+      //  "sequence_number": 0, 
       // "shares": [], 
       //  "start_time": 1672566328, 
       //  "sync": false, 
@@ -95,7 +95,7 @@ function BlockHistoryList() {
       //      "amount": 15000.0, 
       //      "data": "", 
       //      "fromUser": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEz1/9iGubbMvbi+iv7fqiQ82JLmIem6fH+NiZPF3uxPgB4EEwKwuUW8rlmjebiW+iBDoc8jiAeAP/zHHRn3ovUg==", 
-      //      "sequance_number": 1, 
+      //      "sequence_number": 1, 
       //      "signature": "MEYCIQDh2XJEEKV8mBz1/s7LXkK9i+bQJv7FtYCD1hsI16RZOAIhAOQxEc14qyLReodGZWmLYYtOAOEvQbwNcgz6Ap5zBroF", 
       //      "toUser": "abc", 
       //      "transaction_fee": 0.02, 
@@ -104,8 +104,8 @@ function BlockHistoryList() {
       //  ]
       //}
 
-      // get the sequance_number + empty_block_number from data as json
-      setcurrent_block_number(data.sequance_number + data.empty_block_number);
+      // get the sequence_number + empty_block_number from data as json
+      setcurrent_block_number(data.sequence_number + data.empty_block_number);
       
 
       setBlock(data);
@@ -137,7 +137,7 @@ function BlockHistoryList() {
 
           <li key={block}>Minimum Transfer Amount: {block.minumum_transfer_amount}</li>
 
-          <li key={block}>Sequance Number: {block.sequance_number}</li>
+          <li key={block}>Sequance Number: {block.sequence_number}</li>
           <li key={block}>Empty Block Number: {block.empty_block_number}</li>
 
           <li key={block}>Validating List:</li>
@@ -149,7 +149,7 @@ function BlockHistoryList() {
                   <li key={item}>Amount: {item.amount}</li>
                   <li key={item}>Transaction Fee: {item.transaction_fee}</li>
                   <li key={item}>Transaction Time: {item.transaction_time}</li>
-                  <li key={item}>Sequance Number: {item.sequance_number}</li>
+                  <li key={item}>Sequance Number: {item.sequence_number}</li>
                   <li key={item}>Signature: {item.signature}</li>
                   <li key={item}>Data: {item.data}</li>
               </ul>
@@ -253,11 +253,11 @@ function Decentra_Network_Scan() {
       //    "0.0.0.0:8011", 
       //    "0.0.0.0:8012"
       //  ], 
-      //  "first_block": "{'coin_amount': 10000000, 'first_time': False, 'creator': '37487e08340f97eaa3e635c9c6a4ef5bfa287207', 'genesis_time': 1672564238, 'start_time': 1672564832, 'block_time': 22, 'previous_hash': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'sequance_number': 0, 'empty_block_number': 27, 'hard_block_number': 2, 'gap_block_number': 4, 'validating_list': [], 'transaction_fee': 0.02, 'default_transaction_fee': 0.02, 'default_optimum_transaction_number': 1, 'default_increase_of_fee': 0.01, 'transaction_delay_time': 60, 'max_data_size': 1000000, 'part_amount': 100000, 'hash': '4fa89b85956608bd71f9de25a3b6265350ced56bb9f31aa0d103cdbca0656cac', 'part_amount_cache': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'max_tx_number': 2, 'minumum_transfer_amount': 1000, 'round_1_time': 10, 'round_1': False, 'round_2_starting_time': None, 'round_2_time': 10, 'round_2': False, 'consensus_timer': 0.5, 'validated': False, 'validated_time': None, 'dowload_true_block': '', 'sync': False, 'shares': [], 'fee_address': '37487e08340f97eaa3e635c9c6a4ef5bfa287207'}", 
+      //  "first_block": "{'coin_amount': 10000000, 'first_time': False, 'creator': '37487e08340f97eaa3e635c9c6a4ef5bfa287207', 'genesis_time': 1672564238, 'start_time': 1672564832, 'block_time': 22, 'previous_hash': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'sequence_number': 0, 'empty_block_number': 27, 'hard_block_number': 2, 'gap_block_number': 4, 'validating_list': [], 'transaction_fee': 0.02, 'default_transaction_fee': 0.02, 'default_optimum_transaction_number': 1, 'default_increase_of_fee': 0.01, 'transaction_delay_time': 60, 'max_data_size': 1000000, 'part_amount': 100000, 'hash': '4fa89b85956608bd71f9de25a3b6265350ced56bb9f31aa0d103cdbca0656cac', 'part_amount_cache': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'max_tx_number': 2, 'minumum_transfer_amount': 1000, 'round_1_time': 10, 'round_1': False, 'round_2_starting_time': None, 'round_2_time': 10, 'round_2': False, 'consensus_timer': 0.5, 'validated': False, 'validated_time': None, 'dowload_true_block': '', 'sync': False, 'shares': [], 'fee_address': '37487e08340f97eaa3e635c9c6a4ef5bfa287207'}", 
       //  "last_transaction_of_block": "", 
-      //  "new_block": "{'coin_amount': 10000000, 'first_time': False, 'creator': '37487e08340f97eaa3e635c9c6a4ef5bfa287207', 'genesis_time': 1672564238, 'start_time': 1672564876, 'block_time': 22, 'previous_hash': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'sequance_number': 0, 'empty_block_number': 29, 'hard_block_number': 2, 'gap_block_number': 4, 'validating_list': [], 'transaction_fee': 0.02, 'default_transaction_fee': 0.02, 'default_optimum_transaction_number': 1, 'default_increase_of_fee': 0.01, 'transaction_delay_time': 60, 'max_data_size': 1000000, 'part_amount': 100000, 'hash': '2c98ff8f9a1acc774c7654758b68b9ff66fdf7cc9933be52c8b0cb61e97b1de5', 'part_amount_cache': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'max_tx_number': 2, 'minumum_transfer_amount': 1000, 'round_1_time': 10, 'round_1': True, 'round_2_starting_time': 1672564886, 'round_2_time': 10, 'round_2': False, 'consensus_timer': 0.5, 'validated': False, 'validated_time': None, 'dowload_true_block': '', 'sync': False, 'shares': [], 'fee_address': '37487e08340f97eaa3e635c9c6a4ef5bfa287207'}", 
+      //  "new_block": "{'coin_amount': 10000000, 'first_time': False, 'creator': '37487e08340f97eaa3e635c9c6a4ef5bfa287207', 'genesis_time': 1672564238, 'start_time': 1672564876, 'block_time': 22, 'previous_hash': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'sequence_number': 0, 'empty_block_number': 29, 'hard_block_number': 2, 'gap_block_number': 4, 'validating_list': [], 'transaction_fee': 0.02, 'default_transaction_fee': 0.02, 'default_optimum_transaction_number': 1, 'default_increase_of_fee': 0.01, 'transaction_delay_time': 60, 'max_data_size': 1000000, 'part_amount': 100000, 'hash': '2c98ff8f9a1acc774c7654758b68b9ff66fdf7cc9933be52c8b0cb61e97b1de5', 'part_amount_cache': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'max_tx_number': 2, 'minumum_transfer_amount': 1000, 'round_1_time': 10, 'round_1': True, 'round_2_starting_time': 1672564886, 'round_2_time': 10, 'round_2': False, 'consensus_timer': 0.5, 'validated': False, 'validated_time': None, 'dowload_true_block': '', 'sync': False, 'shares': [], 'fee_address': '37487e08340f97eaa3e635c9c6a4ef5bfa287207'}", 
       //  "status": "Working", 
-      //  "transactions_of_us": "[\"{'sequance_number': 3, 'signature': 'MEUCIA1t27MwY+gN5M8bxZWrQVQiz1rxuMTpJj61cDVopT2UAiEAm/9fjlTTvKnYiYz3lqvUptDfj0sbG9JOxQubjZAEbQI=', 'fromUser': 'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEshgihUeZV0+BKeNMl+vB+tLt57gTPNnBYRMTG1110UhKj5VH1THG/MI+JUJkV66Ii8593W/D+MCR4e1wgXEZoQ==', 'toUser': 'onur', 'data': 'atakan', 'amount': 1500.0, 'transaction_fee': 0.02, 'transaction_time': 1672573102} | True\", \"{'sequance_number': 2, 'signature': 'DN', 'fromUser': 'DN', 'toUser': '9f5ce7262d8d55da47203f0080089921d599a166', 'data': 'NP', 'amount': 0.02, 'transaction_fee': 0.0, 'transaction_time': 1672573988} | False\", \"{'sequance_number': 2, 'signature': 'MEUCIQCEDZWH1wnGlaXzH+U5FH790XP0WDv3v+/c9aRfF+Tp2gIgKzRWRBMn/a5FKstHlh4Xi4VkrE10/OHpwfVV9BWpSgs=', 'fromUser': 'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEshgihUeZV0+BKeNMl+vB+tLt57gTPNnBYRMTG1110UhKj5VH1THG/MI+JUJkV66Ii8593W/D+MCR4e1wgXEZoQ==', 'toUser': 'aaa', 'data': '', 'amount': 1500.0, 'transaction_fee': 0.02, 'transaction_time': 1672573954} | True\",  \"{'sequance_number': 0, 'signature': 'DN', 'fromUser': 'DN', 'toUser': '9f5ce7262d8d55da47203f0080089921d599a166', 'data': 'NP', 'amount': 0.02, 'transaction_fee': 0.0, 'transaction_time': 1672573988} | False\", \"{'sequance_number': 0, 'signature': 'MEUCIQCEDZWH1wnGlaXzH+U5FH790XP0WDv3v+/c9aRfF+Tp2gIgKzRWRBMn/a5FKstHlh4Xi4VkrE10/OHpwfVV9BWpSgs=', 'fromUser': 'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEshgihUeZV0+BKeNMl+vB+tLt57gTPNnBYRMTG1110UhKj5VH1THG/MI+JUJkV66Ii8593W/D+MCR4e1wgXEZoQ==', 'toUser': 'aaa', 'data': '', 'amount': 1500.0, 'transaction_fee': 0.02, 'transaction_time': 1672573954} | True\"]"
+      //  "transactions_of_us": "[\"{'sequence_number': 3, 'signature': 'MEUCIA1t27MwY+gN5M8bxZWrQVQiz1rxuMTpJj61cDVopT2UAiEAm/9fjlTTvKnYiYz3lqvUptDfj0sbG9JOxQubjZAEbQI=', 'fromUser': 'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEshgihUeZV0+BKeNMl+vB+tLt57gTPNnBYRMTG1110UhKj5VH1THG/MI+JUJkV66Ii8593W/D+MCR4e1wgXEZoQ==', 'toUser': 'onur', 'data': 'atakan', 'amount': 1500.0, 'transaction_fee': 0.02, 'transaction_time': 1672573102} | True\", \"{'sequence_number': 2, 'signature': 'DN', 'fromUser': 'DN', 'toUser': '9f5ce7262d8d55da47203f0080089921d599a166', 'data': 'NP', 'amount': 0.02, 'transaction_fee': 0.0, 'transaction_time': 1672573988} | False\", \"{'sequence_number': 2, 'signature': 'MEUCIQCEDZWH1wnGlaXzH+U5FH790XP0WDv3v+/c9aRfF+Tp2gIgKzRWRBMn/a5FKstHlh4Xi4VkrE10/OHpwfVV9BWpSgs=', 'fromUser': 'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEshgihUeZV0+BKeNMl+vB+tLt57gTPNnBYRMTG1110UhKj5VH1THG/MI+JUJkV66Ii8593W/D+MCR4e1wgXEZoQ==', 'toUser': 'aaa', 'data': '', 'amount': 1500.0, 'transaction_fee': 0.02, 'transaction_time': 1672573954} | True\",  \"{'sequence_number': 0, 'signature': 'DN', 'fromUser': 'DN', 'toUser': '9f5ce7262d8d55da47203f0080089921d599a166', 'data': 'NP', 'amount': 0.02, 'transaction_fee': 0.0, 'transaction_time': 1672573988} | False\", \"{'sequence_number': 0, 'signature': 'MEUCIQCEDZWH1wnGlaXzH+U5FH790XP0WDv3v+/c9aRfF+Tp2gIgKzRWRBMn/a5FKstHlh4Xi4VkrE10/OHpwfVV9BWpSgs=', 'fromUser': 'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEshgihUeZV0+BKeNMl+vB+tLt57gTPNnBYRMTG1110UhKj5VH1THG/MI+JUJkV66Ii8593W/D+MCR4e1wgXEZoQ==', 'toUser': 'aaa', 'data': '', 'amount': 1500.0, 'transaction_fee': 0.02, 'transaction_time': 1672573954} | True\"]"
       //}
       
       const status = data.status;
