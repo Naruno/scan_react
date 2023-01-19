@@ -51,7 +51,7 @@ function BlockHistoryList() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('http://test_net.1.decentranetwork.net:8101/export/block/json');
+      const response = await fetch('http://testnet1.decentranetwork.net:8101/export/block/json');
 
 
       const data = await response.json();
@@ -234,7 +234,7 @@ function Decentra_Network_Scan() {
     async function fetchData() {
       let data = null
       try {
-        const response = await fetch('http://test_net.1.decentranetwork.net:8102/status');
+        const response = await fetch('http://testnet1.decentranetwork.net:8102/status');
         data = await response.json();
       } catch (e) {
         console.log(e)
