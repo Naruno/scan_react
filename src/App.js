@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Collapse } from 'react-bootstrap';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
+
+function CollapseDemo() {
+    var [toggle, setToggle] = useState(false);
+    
+    useEffect(() => {
+        var myCollapse = document.getElementById('collapseTarget')
+        var bsCollapse = new Collapse(myCollapse, {toggle: false})
+        toggle ? bsCollapse.show() : bsCollapse.hide()
+    })
+  }
 
 
 function BlockHistoryList() {
@@ -140,6 +150,14 @@ function BlockHistoryList() {
           <li key={block}>Sequance Number: {block.sequence_number}</li>
           <li key={block}>Empty Block Number: {block.empty_block_number}</li>
 
+          <div className="py-2">
+        <button className="btn btn-primary" onClick={() => setToggle(toggle => !toggle)}>
+            Toggle collapse
+        </button>
+        <div className="collapse" id="collapseTarget">
+            
+        
+
           <li key={block}>Validating List:</li>
           <ul>
             {block.validating_list.map((item) => (
@@ -157,7 +175,8 @@ function BlockHistoryList() {
             ))}
             
           </ul>  
-
+</div>
+    </div>  
 
           </ul>
     </ul>
