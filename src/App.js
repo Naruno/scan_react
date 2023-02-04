@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import Collapse from 'react-bootstrap/Collapse'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
+import { Button } from "react-bootstrap";
 
 
 function BlockHistoryList() {
+
+
+
   const [block, setBlock] = useState(
     {
       "block_time": null, 
@@ -49,7 +54,10 @@ function BlockHistoryList() {
   );
   const [current_block_number, setcurrent_block_number] = useState();
 
+  var [open, setOpen] = React.useState(false);
+
   useEffect(() => {
+    
     async function fetchData() {
       const response = await fetch('http://test_net.1.decentranetwork.net:8101/export/block/json');
 
@@ -117,6 +125,10 @@ function BlockHistoryList() {
     return () => clearInterval(interval);
   }, []);
 
+
+
+
+
   return (
     <ul>
         <h5 class="card-subtitle mb-2 text-white bg-dark">Block #{current_block_number}</h5>
@@ -140,7 +152,18 @@ function BlockHistoryList() {
           <li key={block}>Sequance Number: {block.sequence_number}</li>
           <li key={block}>Empty Block Number: {block.empty_block_number}</li>
 
-          <li key={block}>Validating List:</li>
+
+
+          <Button
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        ariaa-expanded={open}
+      >
+        Validating List
+      </Button>
+      <Collapse in={open}>
+
+
           <ul>
             {block.validating_list.map((item) => (
               <li key={item}>To: {item.toUser}
@@ -157,7 +180,7 @@ function BlockHistoryList() {
             ))}
             
           </ul>  
-
+      </Collapse>
 
           </ul>
     </ul>
