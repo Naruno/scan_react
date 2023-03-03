@@ -59,7 +59,7 @@ function BlockHistoryList() {
   useEffect(() => {
     
     async function fetchData() {
-      const response = await fetch('http://test_net.1.decentranetwork.net:8101/export/block/json');
+      const response = await fetch('http://test_net.1.naruno.org:8101/export/block/json');
 
 
       const data = await response.json();
@@ -188,12 +188,12 @@ function BlockHistoryList() {
 }
 
 function DNS_navbar() {
-  const title = 'Decentra Network Scan';
+  const title = 'Naruno Scan';
   return (
     <nav className="navbar navbar-expand-lg text-white bg-dark">
       <div className="container-fluid">
       <a class="navbar-brand text-white bg-dark" href="#">
-    <img src="https://docs.decentranetwork.net/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top text-<white" alt="Decentra Network"/>
+    <img src="https://docs.naruno.org/assets/images/logo.png" width="30" height="30" class="d-inline-block align-top text-<white" alt="Naruno"/>
 
     {title}
   </a>
@@ -216,14 +216,14 @@ function DNS_navbar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white bg-dark" href="https://decentranetwork.net/">
+              <a className="nav-link text-white bg-dark" href="https://naruno.org/">
                 Website
               </a>
             </li>
             <li className="nav-item">
               <a
                 className="nav-link text-white bg-dark"
-                href="https://github.com/Decentra-Network/Decentra-Network"
+                href="https://github.com/Naruno/Naruno"
               >
                 GitHub
               </a>
@@ -247,7 +247,7 @@ function getGradient(value) {
   return `rgb(${r}, ${g}, 0)`;
 }
 
-function Decentra_Network_Scan() {
+function Naruno_Scan() {
   const [connected_nodes, setconnected_nodes] = useState([]);
   const [last_transaction_of_us, setlast_transaction_of_us] = useState([]);
   const [progress, setProgress] = useState(0);
@@ -257,7 +257,7 @@ function Decentra_Network_Scan() {
     async function fetchData() {
       let data = null
       try {
-        const response = await fetch('http://test_net.1.decentranetwork.net:8102/status');
+        const response = await fetch('http://test_net.1.naruno.org:8102/status');
         data = await response.json();
       } catch (e) {
         console.log(e)
@@ -390,7 +390,7 @@ function Decentra_Network_Scan() {
 
 
 
-export default Decentra_Network_Scan;
+export default Naruno_Scan;
 
 
 
