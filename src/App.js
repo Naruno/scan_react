@@ -165,9 +165,9 @@ function BlockHistoryList() {
 
 
           <ul>
-          <br>
+          <br />
           Validating list:
-          <br>
+          <br />
             {block.validating_list.map((item) => (
               <li key={item}>To: {item.toUser}
               <ul>
