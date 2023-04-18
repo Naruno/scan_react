@@ -252,7 +252,7 @@ function getGradient(value) {
 
 function Naruno_Scan() {
   const [connected_nodes, setconnected_nodes] = useState([]);
-  const [last_transaction_of_us, setlast_transaction_of_us] = useState([]);
+
   const [progress, setProgress] = useState(0);
   const [health, setHealth] = useState("Loading");
 
@@ -282,15 +282,13 @@ function Naruno_Scan() {
       //  "first_block": "{'coin_amount': 10000000, 'first_time': False, 'creator': '37487e08340f97eaa3e635c9c6a4ef5bfa287207', 'genesis_time': 1672564238, 'start_time': 1672564832, 'block_time': 22, 'previous_hash': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'sequence_number': 0, 'empty_block_number': 27, 'hard_block_number': 2, 'gap_block_number': 4, 'validating_list': [], 'transaction_fee': 0.02, 'default_transaction_fee': 0.02, 'default_optimum_transaction_number': 1, 'default_increase_of_fee': 0.01, 'transaction_delay_time': 60, 'max_data_size': 1000000, 'part_amount': 100000, 'hash': '4fa89b85956608bd71f9de25a3b6265350ced56bb9f31aa0d103cdbca0656cac', 'part_amount_cache': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'max_tx_number': 2, 'minumum_transfer_amount': 1000, 'round_1_time': 10, 'round_1': False, 'round_2_starting_time': None, 'round_2_time': 10, 'round_2': False, 'consensus_timer': 0.5, 'validated': False, 'validated_time': None, 'dowload_true_block': '', 'sync': False, 'shares': [], 'fee_address': '37487e08340f97eaa3e635c9c6a4ef5bfa287207'}", 
       //  "last_transaction_of_block": "", 
       //  "new_block": "{'coin_amount': 10000000, 'first_time': False, 'creator': '37487e08340f97eaa3e635c9c6a4ef5bfa287207', 'genesis_time': 1672564238, 'start_time': 1672564876, 'block_time': 22, 'previous_hash': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'sequence_number': 0, 'empty_block_number': 29, 'hard_block_number': 2, 'gap_block_number': 4, 'validating_list': [], 'transaction_fee': 0.02, 'default_transaction_fee': 0.02, 'default_optimum_transaction_number': 1, 'default_increase_of_fee': 0.01, 'transaction_delay_time': 60, 'max_data_size': 1000000, 'part_amount': 100000, 'hash': '2c98ff8f9a1acc774c7654758b68b9ff66fdf7cc9933be52c8b0cb61e97b1de5', 'part_amount_cache': '1a00d983803e3adcbda2ed40ecba828083221648a90150267d8b0fd500c59750', 'max_tx_number': 2, 'minumum_transfer_amount': 1000, 'round_1_time': 10, 'round_1': True, 'round_2_starting_time': 1672564886, 'round_2_time': 10, 'round_2': False, 'consensus_timer': 0.5, 'validated': False, 'validated_time': None, 'dowload_true_block': '', 'sync': False, 'shares': [], 'fee_address': '37487e08340f97eaa3e635c9c6a4ef5bfa287207'}", 
-      //  "status": "Working", 
-      //  "transactions_of_us": "[\"{'sequence_number': 3, 'signature': 'MEUCIA1t27MwY+gN5M8bxZWrQVQiz1rxuMTpJj61cDVopT2UAiEAm/9fjlTTvKnYiYz3lqvUptDfj0sbG9JOxQubjZAEbQI=', 'fromUser': 'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEshgihUeZV0+BKeNMl+vB+tLt57gTPNnBYRMTG1110UhKj5VH1THG/MI+JUJkV66Ii8593W/D+MCR4e1wgXEZoQ==', 'toUser': 'onur', 'data': 'atakan', 'amount': 1500.0, 'transaction_fee': 0.02, 'transaction_time': 1672573102} | True\", \"{'sequence_number': 2, 'signature': 'DN', 'fromUser': 'DN', 'toUser': '9f5ce7262d8d55da47203f0080089921d599a166', 'data': 'NP', 'amount': 0.02, 'transaction_fee': 0.0, 'transaction_time': 1672573988} | False\", \"{'sequence_number': 2, 'signature': 'MEUCIQCEDZWH1wnGlaXzH+U5FH790XP0WDv3v+/c9aRfF+Tp2gIgKzRWRBMn/a5FKstHlh4Xi4VkrE10/OHpwfVV9BWpSgs=', 'fromUser': 'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEshgihUeZV0+BKeNMl+vB+tLt57gTPNnBYRMTG1110UhKj5VH1THG/MI+JUJkV66Ii8593W/D+MCR4e1wgXEZoQ==', 'toUser': 'aaa', 'data': '', 'amount': 1500.0, 'transaction_fee': 0.02, 'transaction_time': 1672573954} | True\",  \"{'sequence_number': 0, 'signature': 'DN', 'fromUser': 'DN', 'toUser': '9f5ce7262d8d55da47203f0080089921d599a166', 'data': 'NP', 'amount': 0.02, 'transaction_fee': 0.0, 'transaction_time': 1672573988} | False\", \"{'sequence_number': 0, 'signature': 'MEUCIQCEDZWH1wnGlaXzH+U5FH790XP0WDv3v+/c9aRfF+Tp2gIgKzRWRBMn/a5FKstHlh4Xi4VkrE10/OHpwfVV9BWpSgs=', 'fromUser': 'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEshgihUeZV0+BKeNMl+vB+tLt57gTPNnBYRMTG1110UhKj5VH1THG/MI+JUJkV66Ii8593W/D+MCR4e1wgXEZoQ==', 'toUser': 'aaa', 'data': '', 'amount': 1500.0, 'transaction_fee': 0.02, 'transaction_time': 1672573954} | True\"]"
+      //  "status": "Working",
       //}
       
       const status = data.status;
 
       setconnected_nodes(data.connected_nodes);
-      const the_list = JSON.parse(data.transactions_of_us)
-      setlast_transaction_of_us(the_list[the_list.length-1]);
+
 
 
 
@@ -338,20 +336,7 @@ function Naruno_Scan() {
 
 
             </ul>   
-          </div>  
-          <div class="card mb-3 text-white bg-dark">
-          <h2 class="card-title text-center text-white bg-dark">Last transaction of us</h2>
-            <br />
-            <ul>
-
-                    <ul>
-                        <li key={last_transaction_of_us}>{last_transaction_of_us}</li>
-                    </ul>
-
-
-            </ul>        
-        </div>          
-
+          </div>          
         </div>
 
 
